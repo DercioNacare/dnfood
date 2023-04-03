@@ -3,10 +3,10 @@ package com.dncode.dnfood.jpa;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
-import org.springframework.orm.hibernate5.SpringSessionContext;
 
 import com.dncode.dnfood.DnfoodApiApplication;
 import com.dncode.dnfood.domain.model.Cozinha;
+import com.dncode.dnfood.infrastructure.repository.CozinhaRepositoryImpl;
 
 public class CozinhaMain 
 {
@@ -14,17 +14,18 @@ public class CozinhaMain
 		ApplicationContext context = new SpringApplicationBuilder(DnfoodApiApplication.class)
 				.web(WebApplicationType.NONE).run(args);
 		
-		CadastroCozinha cozinhas = context.getBean(CadastroCozinha.class);
+		CozinhaRepositoryImpl cozinhas = context.getBean(CozinhaRepositoryImpl.class);
 	
 		
 		Cozinha coz = new Cozinha();
-		coz.setNome("Brasileira");
+		coz.setNome("Moçambicana");
 	
-		cozinhas.adicionar(coz);
-		
+		cozinhas.salvar(coz);
+		cozinhas.remover(2l);
 		for(Cozinha cozinha: cozinhas.listar())
 		{
 			System.out.println(cozinha.getNome());
 		}
+		System.out.println("::: " + cozinhas.buscar(1L).getNome());
 	}
 }
