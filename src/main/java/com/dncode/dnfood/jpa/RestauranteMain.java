@@ -22,12 +22,12 @@ public class RestauranteMain
 		Restaurante restaurante = new Restaurante();
 		restaurante.setNome("Moçambicano");
 		restaurante.setTaxaFrete(BigDecimal.valueOf(340));
-		res.salvar(restaurante);
+	//	res.salvar(restaurante);
 		
-		res.remover(1l);
+		//res.remover(1l);
 		for(Restaurante r : res.listar())
 		{
-			System.out.println(r.getNome() + " - " + r.getTaxaFrete());
+			System.out.println(r.getNome() + " - " + r.getTaxaFrete() + " - " + r.getCozinha().getNome());
 		}
 		
 		Restaurante r = res.buscar(2l);
