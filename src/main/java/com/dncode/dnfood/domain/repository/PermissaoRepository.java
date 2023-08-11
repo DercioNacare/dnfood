@@ -1,13 +1,12 @@
 package com.dncode.dnfood.domain.repository;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.dncode.dnfood.domain.model.Permissao;
 
-public interface PermissaoRepository 
+@Repository
+public interface PermissaoRepository extends JpaRepository<Permissao, Long>
 {
-	List<Permissao> listar();
-	Permissao buscar(long codigo);
-	Permissao salvar(Permissao permissao);
-	void remover(long codigo);
+
 }

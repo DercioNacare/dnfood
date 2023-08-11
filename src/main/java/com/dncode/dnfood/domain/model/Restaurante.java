@@ -30,4 +30,12 @@ public class Restaurante
 	@ManyToOne
 	@JoinColumn(name = "codigo_cozinha")
 	private Cozinha cozinha;
+
+	@Override
+	public String toString() {
+		return "Restaurante [codigo=" + codigo + ", nome=" + nome + ", taxaFrete=" + taxaFrete + ", cozinha=" + cozinha
+				+ "]";
+	}
+	
+	
 }

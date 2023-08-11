@@ -1,13 +1,10 @@
 package com.dncode.dnfood.domain.repository;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.dncode.dnfood.domain.model.Cidade;
 
-public interface CidadeRepository {
-
-	List<Cidade> listar();
-	Cidade buscar(long codigo);
-	Cidade salvar(Cidade cidade);
-	void remover(long codigo);
+@Repository
+public interface CidadeRepository extends JpaRepository<Cidade, Long>{
 }
